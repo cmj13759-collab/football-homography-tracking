@@ -11,7 +11,10 @@ This project takes in Coaches All-22 sideline film and detects field landmarks a
 - Computes a homography between image space and field space
 - Projects detected player positions onto a standardized field model
 - Outputs annotated visualizations and tracking data
-
+![Player SAM-2 segmentation](src/images/player_sam_2_detection.png)
+![Player detection](src/images/player_detection.png)
+![Field keypoint detection](src/images/keypoint_detection.png)
+![Team identification](srcimages/player_team_identification.png)
 
 ## Tech Stack
 - **Language:** Python
