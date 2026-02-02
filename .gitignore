@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+.venv
+env/
+
+# Env variables
+.env
+
+# Data & outputs (DO NOT upload these)
+data/
+datasets/
+outputs/
+runs/
+*.csv
+*.json
+*.npy
+*.pt
+*.pth
+*.ckpt
+*.mp4
+*.avi
+*.mov
+*.zip
+
+# Logs
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/

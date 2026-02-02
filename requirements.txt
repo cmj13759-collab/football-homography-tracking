@@ -1,0 +1,13 @@
+# Core
+numpy
+opencv-python
+tqdm
+python-dotenv
+
+# ML
+torch
+torchvision
+
+# CV tooling
+supervision
+inference
