@@ -14,7 +14,7 @@ This project takes in Coaches All-22 sideline film and detects field landmarks a
 ![Player SAM-2 segmentation](src/images/player_sam_2_detection.png)
 ![Player detection](src/images/player_detection.png)
 ![Field keypoint detection](src/images/keypoint_detection.png)
-![Team identification](srcimages/player_team_identification.png)
+![Team identification](src/images/player_team_identification.png)
 
 ## Tech Stack
 - **Language:** Python
