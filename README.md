@@ -7,7 +7,7 @@ This project takes in Coaches All-22 sideline film and detects field landmarks a
 
 ## Features
 - Processes football video frames
-- Detects field landmarks (yard numbers, yardlines, sidelines, hash marks)
+- Detects field landmarks (yard numbers and direction)
 - Computes a homography between image space and field space
 - Projects detected player positions onto a standardized field model
 - Outputs annotated visualizations and tracking data
