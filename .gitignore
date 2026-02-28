@@ -1,41 +1,37 @@
-# Python
+# Python Environment
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Virtual environments
+*.py[cod]
+*$py.class
 .venv/
 venv/
-.venv
 env/
 
-# Env variables
+# Environment Variables
 .env
 
-# Data & outputs (DO NOT upload these)
-data/
+# Data & Heavy Media
+data/videos/*
+data/2d_player_maps/*
+data/debug_coordinates/*
+data/inverse_homography/*
+
 datasets/
 outputs/
 runs/
-*.csv
-*.json
-*.npy
+external/
 *.pt
 *.pth
 *.ckpt
-*.mp4
-*.avi
-*.mov
-*.zip
+*.onnx
 
-# Logs
+# Tracking & Analysis Artifacts
+*.csv
+*.json
+*.npy
 *.log
 
-# OS junk
+# OS & IDE Junk
 .DS_Store
 Thumbs.db
-
-# IDEs
 .vscode/
 .idea/

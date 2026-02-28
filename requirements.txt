@@ -1,13 +1,20 @@
-# Core
-numpy
+# Core Computer Vision & ML
 opencv-python
-tqdm
-python-dotenv
-
-# ML
+numpy
 torch
 torchvision
+scikit-learn
+umap-learn
 
-# CV tooling
-supervision
+# Inference & Annotation
 inference
+supervision
+
+# Utilities
+tqdm
+python-dotenv
+pathlib
+matplotlib
+
+# Video Handling
+imageio[ffmpeg]

@@ -3,31 +3,40 @@
 A computer vision pipeline that maps detected football players from video into standardized field coordinates using homography. This enables spatial analysis such as player positioning, spacing, and movement relative to the field.
 
 ## Overview
-This project takes in Coaches All-22 sideline film and detects field landmarks and computes a planar homography. Then projects player detections into a football field coordinate system.
+This project takes in COACH-22 sideline film and detects field landmarks to compute a planar homography. It then projects player detections into a standardized football field coordinate system.
 
 ## Features
-- Processes football video frames
-- Detects field landmarks (yard numbers and direction)
-- Computes a homography between image space and field space
-- Projects detected player positions onto a standardized field model
-- Outputs annotated visualizations and tracking data
-![Player SAM-2 segmentation](src/images/player_sam_2_detection.png)
-![Player detection](src/images/player_detection.png)
-![Field keypoint detection](src/images/keypoint_detection.png)
-![Team identification](src/images/player_team_identification.png)
+- Processes football video frames.
+- Detects field landmarks including yard numbers, yardlines, sidelines, and hash marks.
+- Computes a homography between image space and field space with broadcast-angle resilience.
+- Projects detected player positions onto a standardized field model.
+- Includes unsupervised team identification using K-Means clustering and UMAP.
+- Outputs annotated visualizations, 2D player mappings, and debug coordinate data.
 
 ## Tech Stack
-- **Language:** Python
-- **ML:** PyTorch
-- **Computer Vision:** OpenCV, NumPy
-- **Utilities:** tqdm, python-dotenv
-- **Annotation/Visualization:** supervision
-- **Optional (external):** SAM-2 (Segment Anything 2) via `segment-anything-2-real-time`
+- Language: Python
 
-## Status
-Work in progress
+- ML: PyTorch, scikit-learn
+
+- Computer Vision: OpenCV, NumPy
+
+- Utilities: tqdm, python-dotenv, pathlib
+
+- Annotation/Visualization: supervision
+
+- Model Inference: Roboflow Inference
+
+## Directory Structure
+- data/2d_player_maps/: 2D Bird's-eye view tracking videos.
+
+- data/debug_coordinates/: Diagnostic videos showing model confidence and world coordinates.
+
+-  data/inverse_homography/: Broadcast frames with projected field grids.
+
+- data/videos/: Source footage and processed source clips.
 
 ## Roadmap
-- Add player number identification
-- Improve homography stability
+- Add player number identification.
+
+- Integrate real-time speed and acceleration metrics.
 
