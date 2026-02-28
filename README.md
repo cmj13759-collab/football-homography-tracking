@@ -5,6 +5,20 @@ A computer vision pipeline that maps detected football players from video into s
 ## Overview
 This project takes in COACH-22 sideline film and detects field landmarks to compute a planar homography. It then projects player detections into a standardized football field coordinate system.
 
+## Visual Demos
+
+### 2. Standardized Player Mapping
+Transforms broadcast perspective into a 120-yard coordinate system
+![Player Mapping](assets/passplay_playermapping.gif)
+
+### 2. Inverse Homography Overlay
+Field projection
+![Inverse Homography](assets/runplay_inversehomography.gif)
+
+### 3. Debug & Coordinate Verification
+Tracking of player movement and animating it on a 2D field
+![Debug Coordinates](assets/passplay_debugcoordinates.gif)
+
 ## Features
 - Processes football video frames.
 - Detects field landmarks including yard numbers, yardlines, sidelines, and hash marks.
