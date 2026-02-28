@@ -10,6 +10,7 @@ This project takes in COACH-22 sideline film and detects field landmarks to comp
 ### 2. Standardized Player Mapping
 Transforms broadcast perspective into a 120-yard coordinate system
 ![Player Mapping](assets/passplay_playermapping.gif)
+![Player Mapping](assets/runplay_playermapping.gif)
 
 ### 2. Inverse Homography Overlay
 Field projection
