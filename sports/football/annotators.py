@@ -133,6 +133,79 @@ def draw_field(
 
     return img
 
+def draw_los_dotted(
+    field_img: np.ndarray,
+    config: FootballFieldConfig,
+    los_x_world: float,
+    color: sv.Color = sv.Color.BLUE,
+    scale: float = 20,
+    padding: int = 50,
+    thickness: int = 2,
+    dash_px: int = 10,
+    gap_px: int = 8,
+) -> np.ndarray:
+    out = field_img.copy()
+    bgr = color.as_bgr()
+
+    # x position in pixels (same x for all y)
+    x_px, _ = _to_pixel((float(los_x_world), 0.0), scale=scale, padding=padding)
+
+    # y range of field in pixels
+    _, y0 = _to_pixel((0.0, 0.0), scale=scale, padding=padding)
+    _, y1 = _to_pixel((0.0, float(config.field_width)), scale=scale, padding=padding)
+
+    y = int(min(y0, y1))
+    y_end = int(max(y0, y1))
+
+    while y < y_end:
+        y2 = min(y + int(dash_px), y_end)
+        cv2.line(out, (x_px, y), (x_px, y2), bgr, int(thickness), lineType=cv2.LINE_AA)
+        y = y2 + int(gap_px)
+
+    return out
+
+def draw_receiver_mph_sep_labels(
+    field: np.ndarray,
+    config: FootballFieldConfig,
+    recv_xy: np.ndarray,
+    recv_tids: np.ndarray,
+    speed_mph_by_tid: dict[int, float],
+    sep_yd_by_tid: dict[int, float],
+    scale: float = 20,
+    padding: int = 50,
+    y0_px: int = 16,        # starting offset below dot
+    line_gap_px: int = 16,  # spacing between mph and sep lines
+    text_color: sv.Color = sv.Color.WHITE,
+    thickness: int = 2,
+):
+    out = field.copy()
+    font = cv2.FONT_HERSHEY_DUPLEX
+    font_scale = 0.55
+
+    recv_xy = np.atleast_2d(recv_xy)
+    recv_tids = np.asarray(recv_tids, dtype=int)
+
+    for (x, y), tid in zip(recv_xy, recv_tids):
+        tid = int(tid)
+        mph = float(speed_mph_by_tid.get(tid, 0.0))
+        sep = sep_yd_by_tid.get(tid, None)
+
+        line1 = f"{mph:.1f} mph"
+        line2 = f"sep {sep:.1f} yd" if sep is not None else "sep --"
+
+        cx, cy = _to_pixel((float(x), float(y)), scale=scale, padding=padding)
+
+        # Draw line 1 (mph)
+        (tw1, th1), _ = cv2.getTextSize(line1, font, font_scale, thickness)
+        org1 = (int(cx - tw1 / 2), int(cy + y0_px + th1))
+        cv2.putText(out, line1, org1, font, font_scale, text_color.as_bgr(), thickness, cv2.LINE_AA)
+
+        # Draw line 2 (sep) slightly below
+        (tw2, th2), _ = cv2.getTextSize(line2, font, font_scale, thickness)
+        org2 = (int(cx - tw2 / 2), int(cy + y0_px + line_gap_px + th2))
+        cv2.putText(out, line2, org2, font, font_scale, text_color.as_bgr(), thickness, cv2.LINE_AA)
+
+    return out
 
 def draw_points_on_field(
     config: FootballFieldConfig,

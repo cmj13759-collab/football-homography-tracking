@@ -7,15 +7,27 @@ This project takes in COACH-22 sideline film and detects field landmarks to comp
 
 ## Visual Demos
 
-### 2. Standardized Player Mapping
+### 1. Standardized Player Mapping
 Transforms broadcast perspective into a 120-yard coordinate system
 ![Player Mapping](assets/passplay_playermapping.gif) | ![Player Mapping](assets/runplay_playermapping.gif)
 
-### 2. Inverse Homography Overlay
+### 2. Receiver Routes & Spatial Analytics
+Creates a path of all pass catchers and calculates there speed and seperation
+<p align="center">
+  <video src="assets/passplay_playerstats.mp4"
+         autoplay
+         loop
+         muted
+         playsinline
+         width="800">
+  </video>
+</p>
+
+### 3. Inverse Homography Overlay
 Field projection
 ![Inverse Homography](assets/runplay_inversehomography.gif)
 
-### 3. Debug & Coordinate Verification
+### 4. Debug & Coordinate Verification
 Tracking of player movement and animating it on a 2D field
 ![Debug Coordinates](assets/passplay_debugcoordinates.gif)
 
