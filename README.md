@@ -12,7 +12,7 @@ Transforms broadcast perspective into a 120-yard coordinate system
 ![Player Mapping](assets/passplay_playermapping.gif) ![Player Mapping](assets/runplay_playermapping.gif)
 
 ### 2. Receiver Routes & Spatial Analytics
-Creates a path of all pass catchers and calculates there speed and seperation
+Creates a visualization of all pass catchers and calculates there speed and seperation
 ![Receiver Routes](assets/passplay_players.gif)
 ### 3. Inverse Homography Overlay
 Field projection
